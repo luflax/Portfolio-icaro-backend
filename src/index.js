@@ -5,7 +5,7 @@ const router = require('./routes')
 const db = require('./db')
 
 const server = express()
-const port = 3333
+const port = process.env.PORT || 3333
 
 
 server.use(express.static('./public'))
