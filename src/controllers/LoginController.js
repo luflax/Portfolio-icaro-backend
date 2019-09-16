@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken')
-const env = require('../.env')
+const env = require('../.env') || process.env
 
 module.exports = {
     login(req, res){
