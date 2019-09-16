@@ -7,6 +7,16 @@ if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development')
 else
     dbUrl = 'mongodb+srv://admin:admin@picocluster-h68ia.mongodb.net/test?retryWrites=true&w=majority'
 
-module.exports = mongoose.connect(dbUrl, {
-    useNewUrlParser: true
-})
+async function connect(){
+    try{
+        await mongoose.connect(dbUrl, {
+           useNewUrlParser: true
+        })
+        console.log('Connected to mongodb server.')
+    } 
+    catch(err){
+        console.log(err);
+    }
+}
+
+connect()
